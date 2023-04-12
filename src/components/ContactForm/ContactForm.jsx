@@ -47,8 +47,6 @@ export const ContactForm = () => {
     const names = allContacts.contacts.map(item => item.name);
     if (names.some(item => item.toLowerCase() === name.toLowerCase())) {
       errorMsg(name);
-      setName('');
-      setNumber('');
       return;
     }
     const id = nanoid();

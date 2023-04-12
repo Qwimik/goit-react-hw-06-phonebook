@@ -3,11 +3,12 @@ import {
   FilterSpan,
   FilterInput,
 } from 'components/Filter/Filter.styled';
-import { useDispatch } from 'react-redux';
-import { filterContact } from 'redux/filterSlice';
+import { useSelector, useDispatch } from 'react-redux';
+import { filterContact, getFilter } from 'redux/filterSlice';
 
 export const Filter = () => {
   const dispatch = useDispatch();
+  const filter = useSelector(getFilter);
 
   return (
     <div>
@@ -16,6 +17,7 @@ export const Filter = () => {
         <FilterInput
           type="text"
           name="filter"
+          value={filter}
           onChange={e => dispatch(filterContact(e.target.value))}
           autoComplete="off"
         />
